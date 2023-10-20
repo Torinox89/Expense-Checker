@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect, useState } from "react";
 
 function App() {
+  const [groupMembers, setGroupMembers] = useState([]);
+
+  let url = "http://localhost:3001/members";
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setGroupMembers(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Budget Buddy Application</h2>
+
+      <div class="groupMembers">
+        <h3>Group Members</h3>
+        <ul>
+          {groupMembers.map((member, index) => (
+            <li key={index}>{member.name}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

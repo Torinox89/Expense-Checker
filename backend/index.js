@@ -15,6 +15,14 @@ app.get("/", function (req, res) {
   res.send("Backend for Budget Buddy");
 });
 
+// Income Route
+const incomeController = require("./controllers/incomeController");
+app.use("/incomes", incomeController);
+
+// Expense Route
+const expenseController = require("./controllers/expenseController");
+app.use("/expenses", expenseController);
+
 // Group Members
 app.get("/members", function (req, res) {
   const group_members = [

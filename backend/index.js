@@ -17,15 +17,15 @@ app.get("/", function (req, res) {
 
 // Group Members
 app.get("/members", function (req, res) {
-  const developers = [
-    { name: "Adrian" },
-    { name: "David" },
-    { name: "Eshita" },
-    { name: "Marisol" },
-    { name: "Serena" },
+  const group_members = [
+    { name: "Adrian Mitre" },
+    { name: "David Aguirre" },
+    { name: "Eshita Islam" },
+    { name: "Marisol Valenzuela" },
+    { name: "Serena Ally" },
   ];
 
-  res.json(developers);
+  res.json(group_members);
 });
 
 // Listen for connections.
